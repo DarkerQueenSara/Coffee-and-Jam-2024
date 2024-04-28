@@ -1,3 +1,4 @@
+using PlayerControls;
 using UnityEngine;
 
 namespace Cars
@@ -65,17 +66,18 @@ namespace Cars
             else {
                 _rigidbody.drag = 0;
             }
+            /* if (steering.y != 0) currentAcceleration = steering.y * acceleration; // cheat code for AI throttle */
             Vector2 engineForce = transform.up * currentAcceleration;
             _rigidbody.AddForce(engineForce, ForceMode2D.Force);
         }
 
         private void ApplySteering() {
+            if (GetComponent<PlayerCarInput>() != null) Debug.Log("Rot = " + _rigidbody.rotation);
             float minSpeedBeforeAllowTurning = _rigidbody.velocity.magnitude / 8;
             minSpeedBeforeAllowTurning = Mathf.Clamp01(minSpeedBeforeAllowTurning);
-
             rotationAngle -= steering.x * turnFactor * minSpeedBeforeAllowTurning;
-
-            _rigidbody.MoveRotation(rotationAngle);
+            _rigidbody.rotation = (rotationAngle);
+            if (GetComponent<PlayerCarInput>() != null) Debug.Log(rotationAngle);
         }
 
         private void KillOrthogonalVelocity() {
@@ -90,5 +92,6 @@ namespace Cars
         public void ShootSpecial() {
             Debug.Log("Special");
         }
+
     }
 }

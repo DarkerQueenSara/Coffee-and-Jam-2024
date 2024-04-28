@@ -72,12 +72,10 @@ namespace Cars
         }
 
         private void ApplySteering() {
-            if (GetComponent<PlayerCarInput>() != null) Debug.Log("Rot = " + _rigidbody.rotation);
             float minSpeedBeforeAllowTurning = _rigidbody.velocity.magnitude / 8;
             minSpeedBeforeAllowTurning = Mathf.Clamp01(minSpeedBeforeAllowTurning);
             rotationAngle -= steering.x * turnFactor * minSpeedBeforeAllowTurning;
             _rigidbody.rotation = (rotationAngle);
-            if (GetComponent<PlayerCarInput>() != null) Debug.Log(rotationAngle);
         }
 
         private void KillOrthogonalVelocity() {

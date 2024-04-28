@@ -13,6 +13,10 @@ public class CarAI : MonoBehaviour {
     private void Awake() {
         _car = GetComponent<Car>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
+        _navMeshAgent.updatePosition = false;
+        _navMeshAgent.updateRotation = false;
+        _navMeshAgent.updateUpAxis = false;
+        _navMeshAgent.stoppingDistance = 10.0f;
     }
 
     private void FixedUpdate() {
@@ -34,16 +38,16 @@ public class CarAI : MonoBehaviour {
         if (nearestPlayer != null) {
             NavMeshPath path = new NavMeshPath();
             Vector2 target = nearestPlayer.transform.position;
-            /* _navMeshAgent.CalculatePath (target, path); */
-
-            float steerAmount = TurnToTarget(target/* path.corners[1] */);
-            _car.steering = new Vector2(steerAmount,  0/* ApplyThrottleOrBreak(steerAmount) */);
+            _navMeshAgent.CalculatePath(target, path);
+            transform.position = new Vector3(transform.position.x, transform.position.y, 0);
             
-            if (nearestDistance < 5) {
+            if (nearestDistance < 10) {
                 _car.isFiring = true;
                 _car.isBreaking = false;
                 _car.isAccelerating = false;
             } else {
+                float steerAmount = TurnToTarget(target);
+                _car.steering = new Vector2(steerAmount,  0);
                 _car.isBreaking = false;
                 _car.isAccelerating = true;
             }

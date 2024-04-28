@@ -11,13 +11,14 @@ namespace Cars
         public float velocityVsUp = 0.0f;
         public float rotationAngle = 0;
         public float turnFactor = 3.5f;
-        public int health = 3;
+        public int maxHealth = 3;
     
         [HideInInspector] public bool isAccelerating = false;
         [HideInInspector] public bool isBreaking = false;
         [HideInInspector] public bool isFiring = false;
         [HideInInspector] public Vector2 steering;
-        
+
+        private int _currentHealth;
         private Vector2 _position;
         private Rigidbody2D _rigidbody;
 
@@ -25,6 +26,11 @@ namespace Cars
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+        }
+
+        private void Update()
+        {
+            if (isFiring) Shoot();
         }
 
         private void FixedUpdate() {
@@ -79,7 +85,9 @@ namespace Cars
             _rigidbody.velocity = forwardVelocity + rightVelocity * driftFactor;
         }
 
-        public virtual void ShootSpecial() {
+        protected abstract void Shoot();
+
+        public void ShootSpecial() {
             Debug.Log("Special");
         }
     }

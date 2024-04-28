@@ -21,10 +21,15 @@ namespace PlayerControls
             _inputMap.Driving.Shoot.performed += ctx => _car.isFiring = true;
             _inputMap.Driving.Shoot.canceled += ctx => _car.isFiring = false;
             _inputMap.Driving.Special.performed += ctx => _car.ShootSpecial();
-            _inputMap.Driving.Steer.performed += ctx => _car.steering = ctx.ReadValue<Vector2>();
-            _inputMap.Driving.Steer.canceled += ctx => _car.steering = Vector2.zero;
+            _inputMap.Driving.Steer.performed += ctx => _car.steering.x = ctx.ReadValue<Vector2>().x;
+            _inputMap.Driving.Steer.canceled += ctx => _car.steering.x = 0;
         }
-        
+
+        void FixedUpdate() {
+            /* Debug.Log(_car.steering);
+            Debug.Log(_car.rotationAngle); */
+        }
+
         private void OnEnable()
         {
             _inputMap.Driving.Enable();

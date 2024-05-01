@@ -10,13 +10,15 @@ namespace Cars.CarTypes
         public Transform firePoint;
         
         private bool _canShoot = true;
-        private float _timeLeft;
+        private float _timeLeft = 0.0f;
         
         private void Update()
         {
             //Check if the player can shoot
+      
             if (_timeLeft < 0) _canShoot = true;
             _timeLeft -= Time.deltaTime;
+            if (isFiring) Shoot();
         }
 
         protected override void Shoot()

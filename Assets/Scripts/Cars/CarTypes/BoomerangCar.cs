@@ -10,6 +10,11 @@ namespace Cars.CarTypes
         public Transform firePoint;
         
         [HideInInspector] public bool canShoot = true;
+
+        private void Update()
+        {
+            if (isFiring) Shoot();
+        }
         
         protected override void Shoot()
         {

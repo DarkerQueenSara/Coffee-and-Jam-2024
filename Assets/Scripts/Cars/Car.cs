@@ -31,7 +31,8 @@ namespace Cars
 
         private void Update()
         {
-            if (isFiring) Shoot();
+            //Debug.Log(isFiring);
+            //if (isFiring) Shoot();
         }
 
         private void FixedUpdate() {

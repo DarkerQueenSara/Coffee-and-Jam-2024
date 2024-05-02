@@ -9,7 +9,7 @@
                     "name": "Accelerate",
                     "type": "Button",
                     "id": "d1758f81-3fbf-4e1b-b56d-c6cec2fc6a93",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -192,7 +192,16 @@
                     "name": "Submit",
                     "type": "Button",
                     "id": "56f0ce29-3ce8-4e1d-aae3-7b93055a60d5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Start",
+                    "type": "Button",
+                    "id": "a093fb3f-2bec-48fb-9c98-5cbdeb59126c",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -541,8 +550,19 @@
                     "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR",
+                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR;Controller",
                     "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "20e63c99-ec79-4d42-b47f-61d0433e0047",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse;Gamepad;Touch;Joystick;XR;Controller",
+                    "action": "Start",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

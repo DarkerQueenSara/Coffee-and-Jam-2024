@@ -41,11 +41,16 @@ public class CarAI : MonoBehaviour {
             _navMeshAgent.CalculatePath(target, path);
             transform.position = new Vector3(transform.position.x, transform.position.y, 0);
             
-            if (nearestDistance < 10) {
+            if (nearestDistance < 10) { // car stopped
                 _car.isFiring = true;
                 _car.isBreaking = false;
                 _car.isAccelerating = false;
-            } else {
+                
+                // Face the player
+                float steerAmount = TurnToTarget(target);
+                transform.Rotate(0, 0, - steerAmount);
+
+            } else { // car moving
                 float steerAmount = TurnToTarget(target);
                 _car.steering = new Vector2(steerAmount,  0);
                 _car.isBreaking = false;

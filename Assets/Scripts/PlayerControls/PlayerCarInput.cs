@@ -1,44 +1,46 @@
-using System.Linq;
+using System;
 using Cars;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace PlayerControls
 {
-    /* [RequireComponent(typeof(Car))] */
+    [RequireComponent(typeof(Car))]
     public class PlayerCarInput : MonoBehaviour
     {
-        private InputMap _inputMap;
         private PlayerInput _playerInput;
         private Car _car;
-        public GameObject _cameraPrefab;
 
-        private void Awake()
+        public void InitializeCar(PlayerInput pi)
         {
-            _playerInput = GetComponent<PlayerInput>();
-            var cars = FindObjectsByType<Car>(FindObjectsSortMode.None);
-            var index = _playerInput.playerIndex;
-            Debug.Log(index);
-            _car = cars.FirstOrDefault(car => car.playerIndex == index);
-            /* GameObject camera = Instantiate(_cameraPrefab);
-            _playerInput.camera = camera.GetComponent<Camera>();
-            camera.GetComponent<CameraFollow>().car = _car; */
+            _playerInput = pi;
+            _car = GetComponent<Car>();
+            _playerInput.actions["Steer"].performed += Steer;
+            _playerInput.actions["Accelerate"].performed += Accelerate;            
+            _playerInput.actions["Accelerate"].canceled += Accelerate;
+            _playerInput.actions["Break"].performed += Break;
+            _playerInput.actions["Break"].canceled += Break;
+            _playerInput.actions["Shoot"].performed += Shoot;
+            _playerInput.actions["Shoot"].canceled += Shoot;
+            _playerInput.actions["Special"].performed += Special;
         }
 
-        void FixedUpdate() {
-            /* Debug.Log(_car.steering);
-            Debug.Log(_car.rotationAngle); */
-        }
+       
 
-       /*  private void OnEnable()
-        {
-            _inputMap.Driving.Enable();
-        }
-        
         private void OnDisable()
         {
-            _inputMap.Driving.Disable();
-        } */
+            if (_playerInput.actions != null)
+            {
+                _playerInput.actions["Steer"].performed -= Steer;
+                _playerInput.actions["Accelerate"].performed -= Accelerate;            
+                _playerInput.actions["Accelerate"].canceled -= Accelerate;
+                _playerInput.actions["Break"].performed -= Break;
+                _playerInput.actions["Break"].canceled -= Break;
+                _playerInput.actions["Shoot"].performed -= Shoot;
+                _playerInput.actions["Shoot"].canceled -= Shoot;
+                _playerInput.actions["Special"].performed -= Special;
+            }
+        }
 
         public void Accelerate(InputAction.CallbackContext ctx)
         {

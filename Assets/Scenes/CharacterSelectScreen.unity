@@ -1318,6 +1318,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 793166205379083928, guid: 0dbd200ffff2cb444a3b586d855a7ee5, type: 3}
+      propertyPath: m_SplitScreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 793166205379083928, guid: 0dbd200ffff2cb444a3b586d855a7ee5, type: 3}
+      propertyPath: m_PlayerPrefab
+      value: 
+      objectReference: {fileID: 8259962810838602460, guid: ef6f901d546c76e42bdea5eb15ef1797, type: 3}
+    - target: {fileID: 793166205379083928, guid: 0dbd200ffff2cb444a3b586d855a7ee5, type: 3}
+      propertyPath: m_FixedNumberOfSplitScreens
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 793166205379083928, guid: 0dbd200ffff2cb444a3b586d855a7ee5, type: 3}
+      propertyPath: m_MaintainAspectRatioInSplitScreen
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1505605037236545961, guid: 0dbd200ffff2cb444a3b586d855a7ee5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

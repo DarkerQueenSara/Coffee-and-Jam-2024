@@ -11,7 +11,6 @@ namespace UI
         private int _playerIndex;
 
         [SerializeField] public GameObject readyText;
-
         [SerializeField] private List<GameObject> characters;
         [SerializeField] private List<GameObject> prefabs;
         private int _currentSelectedCharacter;
@@ -20,28 +19,49 @@ namespace UI
         private bool _inputEnabled;
         private bool _characterSelected;
 
+        private PlayerInput _playerInput;
+        
         private void Start()
         {
             _currentSelectedCharacter = 0;
             Invoke(nameof(EnableInput), _ignoreInputTime);
         }
 
-        public void SetPlayerIndex(int pi)
+        public void SetPlayerIndex(PlayerInput pi)
         {
             Debug.Log("Setting player index " + pi);
-            _playerIndex = pi;
+            _playerIndex = pi.playerIndex;
+            _playerInput = pi;
+            _playerInput.actions["Navigate"].performed += ctx => GoUpOrDown(ctx.ReadValue<Vector2>());
+            _playerInput.actions["Submit"].performed += _ => SetCharacter();
+            _playerInput.actions["Cancel"].performed += _ => CancelCharacter();
+            _playerInput.actions["Start"].performed += _ => StartMatch();
+
         }
 
+       
+
+        private void OnDisable()
+        {
+            if (_playerInput.actions != null)
+            {
+                _playerInput.actions["Navigate"].performed -= ctx => GoUpOrDown(ctx.ReadValue<Vector2>());
+                _playerInput.actions["Submit"].performed -= _ => SetCharacter();
+                _playerInput.actions["Cancel"].performed -= _ => CancelCharacter();
+                _playerInput.actions["Start"].performed -= _ => StartMatch();
+            }
+        }
+        
         private void EnableInput()
         {
             _inputEnabled = true;
         }
 
-        public void GoUpOrDown(InputAction.CallbackContext ctx)
+        public void GoUpOrDown(Vector2 ctx)
         {
             if (!_inputEnabled || _characterSelected) return;
-            if (ctx.ReadValue<Vector2>().y > 0) GoUp();
-            if (ctx.ReadValue<Vector2>().y < 0) GoDown();
+            if (ctx.y > 0) GoUp();
+            if (ctx.y < 0) GoDown();
         }
 
         private void GoUp()
@@ -73,7 +93,7 @@ namespace UI
 
         public void SetCharacter()
         {
-            if (!_inputEnabled) return;
+            if (!_inputEnabled || _characterSelected) return;
             
             PlayerConfigurationManager.Instance.SetPlayerCharacter(_playerIndex, prefabs[_currentSelectedCharacter]);
             readyText.SetActive(true);
@@ -84,7 +104,7 @@ namespace UI
 
         public void CancelCharacter()
         {
-            if (!_inputEnabled) return;
+            if (!_inputEnabled || !_characterSelected) return;
             PlayerConfigurationManager.Instance.SetPlayerCharacter(_playerIndex, null);
             readyText.SetActive(false);
             _characterSelected = false;

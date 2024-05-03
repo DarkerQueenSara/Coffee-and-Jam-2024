@@ -38,12 +38,16 @@ namespace UI
         public void ResetPlayers()
         {
             _playerConfigs = new List<PlayerConfiguration>();
+            for (int i = transform.childCount - 1; i >= 0; i--)
+            {
+                Destroy(transform.GetChild(i));
+            }
         }
 
         public void HandlePlayerJoin(PlayerInput pi)
         {
             Debug.Log("Player joined " + pi.playerIndex);
-            pi.transform.SetParent(characterHolder.transform);
+            pi.transform.SetParent(transform);
             pi.transform.localScale = Vector3.one;
             if (!_playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
             {

@@ -11,7 +11,7 @@ namespace Cars.CarTypes
         
         [HideInInspector] public bool canShoot = true;
 
-        private void Update()
+        new protected void Update()
         {
             if (isFiring) Shoot();
         }

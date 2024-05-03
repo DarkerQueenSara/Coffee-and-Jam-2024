@@ -130,10 +130,12 @@ MonoBehaviour:
   rotationAngle: 0
   turnFactor: 3.5
   maxHealth: 3
+  playerIndex: 0
   isAccelerating: 0
   isBreaking: 0
   isFiring: 0
   steering: {x: 0, y: 0}
+  _currentHealth: 0
   fireRate: 1
   bulletPrefab: {fileID: 9129855434105636211, guid: 7d4a36d26d507404785dbab3bd3b505d, type: 3}
   firePoint: {fileID: 2623635073529200465}

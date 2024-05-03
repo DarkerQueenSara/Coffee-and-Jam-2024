@@ -11,7 +11,7 @@ namespace Cars.CarTypes
 
         private void OnTriggerEnter2D(Collider2D other) {
             Car hit =  other.GetComponent<Car>();
-            if (hit != null) {
+            if (hit != null && ! hit.IsInvencible()) {
                 hit.TakeHit();
             }
         }

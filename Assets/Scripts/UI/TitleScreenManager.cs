@@ -1,28 +1,37 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleScreenManager : MonoBehaviour
+namespace UI
 {
-
-    public Button startGameButton;
-
-    public Button exitGameButton;
-    // Start is called before the first frame update
-    private void Start()
+    public class TitleScreenManager : MonoBehaviour
     {
-        startGameButton.onClick.AddListener(LoadCharacterSelect);
-        exitGameButton.onClick.AddListener(ExitGame);
-    }
 
-    private void LoadCharacterSelect()
-    {
-        Debug.Log("STARTED GAME");
-    }
+        public Button startGameButton;
+        public Button optionsButton;
+        public Button exitGameButton;
+        // Start is called before the first frame update
+        private void Start()
+        {
+            startGameButton.onClick.AddListener(LoadCharacterSelect);
+            optionsButton.onClick.AddListener(LoadOptions);
+            exitGameButton.onClick.AddListener(ExitGame);
+        }
 
-    private void ExitGame()
-    {
-        Debug.Log("EXITED GAME");
+        private static void LoadCharacterSelect()
+        {
+            SceneManager.LoadScene("CharacterSelectScreen");
+        }
+        
+        private static void LoadOptions()
+        {
+            SceneManager.LoadScene("OptionsScreen");
+        }
+
+
+        private static void ExitGame()
+        {
+            Debug.Log("EXITED GAME");
+        }
     }
 }

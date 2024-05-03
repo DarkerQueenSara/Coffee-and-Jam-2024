@@ -1,11 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-using UnityEngine.Serialization;
 
 namespace UI
 {
@@ -15,6 +12,9 @@ namespace UI
         [SerializeField] private int maxPlayers = 4;
 
         public static PlayerConfigurationManager Instance { get; private set; }
+
+        [SerializeField] private GameObject readyText;
+        [SerializeField] private GameObject characterHolder;
 
         private void Awake()
         {
@@ -29,10 +29,20 @@ namespace UI
             }
         }
 
+        private void Start()
+        {
+            readyText.SetActive(false);
+        }
+
+        public void ResetPlayers()
+        {
+            _playerConfigs = new List<PlayerConfiguration>();
+        }
+
         public void HandlePlayerJoin(PlayerInput pi)
         {
             Debug.Log("Player joined " + pi.playerIndex);
-            pi.transform.SetParent(transform);
+            pi.transform.SetParent(characterHolder.transform);
             pi.transform.localScale = Vector3.one;
             if (!_playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
             {
@@ -48,11 +58,18 @@ namespace UI
         public void ReadyPlayer(int index)
         {
             _playerConfigs[index].IsReady = true;
+            Debug.Log("Player " + index + " is ready!");
+            if (_playerConfigs.All(p => p.IsReady))
+            {
+                readyText.SetActive(true);
+            }
         }
 
         public void UnreadyPlayer(int index)
         {
             _playerConfigs[index].IsReady = false;
+            Debug.Log("Player " + index + " is not ready!");
+            readyText.SetActive(false);
         }
         
         public void StartMatch()

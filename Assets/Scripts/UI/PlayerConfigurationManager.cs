@@ -15,7 +15,6 @@ namespace UI
         public static PlayerConfigurationManager Instance { get; private set; }
 
         [SerializeField] private GameObject readyText;
-        [SerializeField] private GameObject characterHolder;
 
         private void Awake()
         {
@@ -48,7 +47,6 @@ namespace UI
         {
             Debug.Log("Player joined " + pi.playerIndex);
             pi.transform.SetParent(transform);
-            pi.transform.localScale = Vector3.one;
             if (!_playerConfigs.Any(p => p.PlayerIndex == pi.playerIndex))
             {
                 _playerConfigs.Add(new PlayerConfiguration(pi));

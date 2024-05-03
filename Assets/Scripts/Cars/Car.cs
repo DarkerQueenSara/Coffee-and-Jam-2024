@@ -1,5 +1,6 @@
 using PlayerControls;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Cars
 {
@@ -13,7 +14,9 @@ namespace Cars
         public float rotationAngle = 0;
         public float turnFactor = 3.5f;
         public int maxHealth = 3;
-    
+
+        public Image healthBar;
+        
         public int playerIndex;
         [HideInInspector] public bool isAccelerating = false;
         [HideInInspector] public bool isBreaking = false;
@@ -36,6 +39,7 @@ namespace Cars
 
         protected void Update()
         {
+            healthBar.fillAmount = 1.0f * _currentHealth / maxHealth;
             if (_invencibilityTime > 0) 
             {
                 _invencibilityTime = Mathf.Max(0, _invencibilityTime - Time.deltaTime);

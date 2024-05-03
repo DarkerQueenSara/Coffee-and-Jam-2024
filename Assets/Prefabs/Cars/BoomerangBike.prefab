@@ -270,6 +270,7 @@ MonoBehaviour:
   isBreaking: 0
   isFiring: 0
   steering: {x: 0, y: 0}
+  _currentHealth: 0
   boomerangPrefab: {fileID: 5570591772447217787, guid: fc1fbd8a35d18744fa7604c542c6196c, type: 3}
   firePoint: {fileID: 37712481864648484}
   canShoot: 1
@@ -285,6 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6efeccd375340a4b0643601d547060c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraPrefab: {fileID: 0}
 --- !u!61 &3261007398066556265
 BoxCollider2D:
   m_ObjectHideFlags: 0

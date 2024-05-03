@@ -9,6 +9,7 @@ namespace UI
     public class PlayerConfigurationManager : MonoBehaviour
     {
         private List<PlayerConfiguration> _playerConfigs;
+        public List<PlayerConfiguration> PlayerConfigs => _playerConfigs;
         [SerializeField] private int maxPlayers = 4;
 
         public static PlayerConfigurationManager Instance { get; private set; }

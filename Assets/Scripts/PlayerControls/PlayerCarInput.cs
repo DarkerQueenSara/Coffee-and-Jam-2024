@@ -11,7 +11,8 @@ namespace PlayerControls
         private InputMap _inputMap;
         private PlayerInput _playerInput;
         private Car _car;
-        
+        public GameObject _cameraPrefab;
+
         private void Awake()
         {
             _playerInput = GetComponent<PlayerInput>();
@@ -19,6 +20,9 @@ namespace PlayerControls
             var index = _playerInput.playerIndex;
             Debug.Log(index);
             _car = cars.FirstOrDefault(car => car.playerIndex == index);
+            /* GameObject camera = Instantiate(_cameraPrefab);
+            _playerInput.camera = camera.GetComponent<Camera>();
+            camera.GetComponent<CameraFollow>().car = _car; */
         }
 
         void FixedUpdate() {

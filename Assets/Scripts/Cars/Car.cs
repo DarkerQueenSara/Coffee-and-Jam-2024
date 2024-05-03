@@ -24,11 +24,13 @@ namespace Cars
         private float _invencibilityTime = 0;
         private Vector2 _position;
         private Rigidbody2D _rigidbody;
+        private AudioSource _audioSource;
 
         // Start is called before the first frame update
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _audioSource = GetComponent<AudioSource>();
             _currentHealth = maxHealth;
         }
 
@@ -68,9 +70,11 @@ namespace Cars
 
             if (currentAcceleration == 0) {
                 _rigidbody.drag = Mathf.Lerp(_rigidbody.drag, 3, Time.fixedDeltaTime * 3);
+                if (_audioSource != null) _audioSource.Play();
             }
             else {
                 _rigidbody.drag = 0;
+                if (_audioSource != null) _audioSource.Stop();
             }
             /* if (steering.y != 0) currentAcceleration = steering.y * acceleration; // cheat code for AI throttle */
             Vector2 engineForce = transform.up * currentAcceleration;

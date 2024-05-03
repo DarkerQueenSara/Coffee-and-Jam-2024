@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6000914753508852181}
-  - component: {fileID: 2402305984719354275}
   - component: {fileID: 4833491566659970598}
   - component: {fileID: 2871594934402371369}
   - component: {fileID: 5951818856177313569}
@@ -42,100 +41,6 @@ Transform:
   - {fileID: 2623635073529200465}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2402305984719354275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163161556034899942}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 59d6a31241df7bb428dc55e3b0febef9, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: d1758f81-3fbf-4e1b-b56d-c6cec2fc6a93
-    m_ActionName: Driving/Accelerate
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: daae1938-b45b-434d-b9d1-aa0bbc95eaa6
-    m_ActionName: Driving/Break
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 7466deb6-3e5d-4a43-80ae-bff8961e4f77
-    m_ActionName: Driving/Shoot
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 0a44b715-18c8-438c-ac31-ec95a612de50
-    m_ActionName: 'Driving/Special[/Keyboard/q]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 181ffc52-57e5-4c6e-b2c1-0e5993a45890
-    m_ActionName: Driving/Steer
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8b09cda6-3287-4c7e-a730-7ef86141c8fa
-    m_ActionName: 'UI/Navigate[/DualShock4GamepadHID/leftStick/up,/DualShock4GamepadHID/rightStick/up,/DualShock4GamepadHID/leftStick/down,/DualShock4GamepadHID/rightStick/down,/DualShock4GamepadHID/leftStick/left,/DualShock4GamepadHID/rightStick/left,/DualShock4GamepadHID/leftStick/right,/DualShock4GamepadHID/rightStick/right,/DualShock4GamepadHID/dpad,/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 56f0ce29-3ce8-4e1d-aae3-7b93055a60d5
-    m_ActionName: 'UI/Submit[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a093fb3f-2bec-48fb-9c98-5cbdeb59126c
-    m_ActionName: 'UI/Start[/DualShock4GamepadHID/start]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 96b67b23-69ff-495d-9bb2-d17a3feaab89
-    m_ActionName: 'UI/Cancel[/Keyboard/escape,/DualShock4GamepadHID/buttonEast]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e4c4ff4e-53c4-48dc-a5ae-4e2c31aef5ff
-    m_ActionName: 'UI/Point[/Mouse/position]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: c40ded41-5460-426c-b683-4d125e058c1a
-    m_ActionName: 'UI/Click[/Mouse/leftButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 86ccde6d-5fe9-4dbd-b8d3-1a77f17fb0fb
-    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: a2682e54-cbd6-44c2-be02-1f82c60aaa56
-    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 461a289d-a215-4a1c-8ad1-c0148da8570e
-    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 71cf1a7b-24c0-4ccb-a8d4-1a54df325214
-    m_ActionName: UI/TrackedDevicePosition
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 406fa350-e31d-45d6-ad69-f1ac19311496
-    m_ActionName: UI/TrackedDeviceOrientation
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Controller
-  m_DefaultActionMap: Driving
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
 --- !u!50 &4833491566659970598
 Rigidbody2D:
   serializedVersion: 4
@@ -241,7 +146,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163161556034899942}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6efeccd375340a4b0643601d547060c, type: 3}
   m_Name: 

@@ -205,7 +205,7 @@ MonoBehaviour:
   rotationAngle: 0
   turnFactor: 3.5
   maxHealth: 3
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 8961874191494376052}
   playerIndex: 0
   isAccelerating: 0
   isBreaking: 0

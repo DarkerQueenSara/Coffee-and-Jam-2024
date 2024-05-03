@@ -28,7 +28,17 @@ public class MatchManager : MonoBehaviour
                 carComponent.InitializeCar(playerConfigs[i].Input);
                 instantiatedCars++;
             }
-            //span ai cars, if not 4 cars spawned
+            for (int i = instantiatedCars; i < 4; i++)
+            {
+                Instantiate(aiCars[Random.Range(0, aiCars.Count)], transformSpawns[i].position, transformSpawns[i].rotation);
+            }
+        }
+    }
+
+    private void Update() {
+        int alive = GameObject.FindGameObjectsWithTag("Player").Length + GameObject.FindGameObjectsWithTag("AI").Length;
+        if (alive <= 1) {
+            EndMatch();
         }
     }
 

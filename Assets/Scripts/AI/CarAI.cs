@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Cars;
 using UnityEngine;
 using UnityEngine.AI;
@@ -26,6 +27,7 @@ public class CarAI : MonoBehaviour {
     private void FollowNearestPlayer() {
         // Find the nearest player
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        players.Concat(GameObject.FindGameObjectsWithTag("AI"));
         GameObject nearestPlayer = null;
         float nearestDistance = Mathf.Infinity;
         foreach (GameObject player in players) {

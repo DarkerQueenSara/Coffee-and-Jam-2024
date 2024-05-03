@@ -14,6 +14,7 @@ namespace Cars
         public float turnFactor = 3.5f;
         public int maxHealth = 3;
     
+        public int playerIndex;
         [HideInInspector] public bool isAccelerating = false;
         [HideInInspector] public bool isBreaking = false;
         [HideInInspector] public bool isFiring = false;

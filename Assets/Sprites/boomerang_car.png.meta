@@ -55,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -200,14 +200,18 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      boomerang_car_0: 7337722136123837153
+      boomerang_car_1: -6494578447936940173
+      boomerang_car_2: -904842325666822479
+      boomerang_car_3: 2457894763109556026
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -49,7 +49,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163161556034899942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -228,6 +228,7 @@ MonoBehaviour:
   rotationAngle: 0
   turnFactor: 3.5
   maxHealth: 3
+  playerIndex: 0
   isAccelerating: 0
   isBreaking: 0
   isFiring: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1163161556034899942}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b6efeccd375340a4b0643601d547060c, type: 3}
   m_Name: 

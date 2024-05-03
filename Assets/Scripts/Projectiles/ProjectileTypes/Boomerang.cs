@@ -1,4 +1,5 @@
-﻿using Cars.CarTypes;
+﻿using Cars;
+using Cars.CarTypes;
 using Extensions;
 using UnityEngine;
 
@@ -65,6 +66,13 @@ namespace Projectiles.ProjectileTypes
             if (wallsLayer.HasLayer(col.gameObject.layer))
             {
                 _travelingBack = true;
+            }
+            else {
+                Car hit = col.GetComponent<Car>();
+                if (hit != null && !hit.IsInvencible())
+                {
+                    hit.TakeHit();
+                }
             }
         }
     }

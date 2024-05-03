@@ -14,12 +14,14 @@ namespace Cars
         public float turnFactor = 3.5f;
         public int maxHealth = 3;
     
+        public int playerIndex;
         [HideInInspector] public bool isAccelerating = false;
         [HideInInspector] public bool isBreaking = false;
         [HideInInspector] public bool isFiring = false;
         [HideInInspector] public Vector2 steering;
 
-        private int _currentHealth;
+        [SerializeField] private int _currentHealth;
+        private float _invencibilityTime = 0;
         private Vector2 _position;
         private Rigidbody2D _rigidbody;
 
@@ -27,12 +29,15 @@ namespace Cars
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
+            _currentHealth = maxHealth;
         }
 
-        private void Update()
+        protected void Update()
         {
-            //Debug.Log(isFiring);
-            //if (isFiring) Shoot();
+            if (_invencibilityTime > 0) 
+            {
+                _invencibilityTime = Mathf.Max(0, _invencibilityTime - Time.deltaTime);
+            }
         }
 
         private void FixedUpdate() {
@@ -92,11 +97,17 @@ namespace Cars
             Debug.Log("Special");
         }
 
+        public bool IsInvencible() {
+            return _invencibilityTime > 0;
+        }
+
         public void TakeHit() {
             _currentHealth--;
             if (_currentHealth <= 0) { // FIXME : maybe change this to another behaviour after death
                 Destroy(gameObject);
+                return;
             }
+            _invencibilityTime = 3;
         }
 
     }

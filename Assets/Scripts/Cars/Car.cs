@@ -92,5 +92,12 @@ namespace Cars
             Debug.Log("Special");
         }
 
+        public void TakeHit() {
+            _currentHealth--;
+            if (_currentHealth <= 0) { // FIXME : maybe change this to another behaviour after death
+                Destroy(gameObject);
+            }
+        }
+
     }
 }
